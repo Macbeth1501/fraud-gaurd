@@ -1,0 +1,164 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #000000;
+    color: white;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Black with 90% opacity */
+    padding: 10px 20px;
+}
+
+/* Navbar brand and links */
+.navbar-brand,
+.navbar-nav .nav-item .nav-link {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+/* Adding a subtle shadow effect */
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section {
+    height: 100vh;
+    background-image: url("/static/images/bank-scam-calls.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+}
+
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.hero-section p {
+    backdrop-filter: blur(5px);
+    font-size: 1.5rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #00bcd4;
+}
+
+section {
+    padding: 30px 20px;
+}
+
+form {
+    max-width: 600px;
+}
+
+footer {
+    background-color: #111;
+    padding: 20px 0;
+    color: #aaa;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Features Section */
+#features {
+    background-color: #000000;
+    padding: 50px 0;
+}
+
+.section-title {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 30px;
+}
+
+.feature-box {
+    padding: 20px;
+    background: #f8f7f7;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    text-align: center;
+    color: #333;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.feature-box h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.feature-box p {
+    font-size: 16px;
+    color: #555;
+    padding: 10px;
+}
+
+.feature-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+}
+
+hr {
+    border: none;
+    height: 5px;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 50px 0;
+    width: 80%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Enhance the text with a circular effect */
+#predict h1 {
+    background: linear-gradient(90deg, #007BFF, #1E90FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50%;
+    text-shadow: 2px 2px 10px rgba(0, 0, 255, 0.7);
+}
+
+#predict {
+    padding: 30px;
+    margin: 20px;
+    background: #000;
+    border: 4px solid #fff;
+    box-shadow: 0 0 50px 15px rgba(255, 255, 255, 0.8);
+    transition: box-shadow 0.5s ease-in-out;
+    border-radius: 12px;
+}
+
+/* Neon glow effect on hover */
+#predict:hover {
+    box-shadow: 0 0 80px 30px rgba(0, 128, 255, 0.7);
+}
+
+.text-primary {
+    color: #ff5733; /* Change this to your desired color */
+    font-weight: bold;
+}

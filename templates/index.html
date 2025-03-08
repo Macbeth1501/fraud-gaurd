@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FraudGuard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">FraudGuard🛡️ </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#predict">Predict</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container text-center">
+            <h1>Welcome to FraudGuard🛡️</h1>
+            <p>Your ultimate solution to fraud detection with speaker recognition AI.</p>
+        </div>
+    </header>
+
+<!-- About Section -->
+<section id="about" class="container my-5">
+    <div class="row">
+        <!-- Text Content -->
+        <div class="col-md-6">
+            <h2 class="fade-in text-primary">About FraudGuard🛡️</h2>
+            <p class="fade-in">
+                FraudGuard is an AI-powered platform that combats fraud and identity scams using advanced <strong>speaker recognition technology</strong>. It accurately identifies individuals based on voice patterns, ensuring <strong>secure communication</strong> and protecting against deceptive practices.
+            </p>
+            <p class="fade-in">
+                Trust <strong>FraudGuard</strong> for a reliable defense against fraud and a safer digital experience, empowering individuals, telecom service providers, and corporations alike.
+            </p>
+        </div>
+
+        <!-- Image Section -->
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='images/pic5.jpg') }}" class="img-fluid rounded shadow slide-in-right" alt="FraudGuard Interface">
+        </div>
+    </div>
+    <hr>
+</section>
+
+    <!-- Prediction Section -->
+    <section id="predict" class="py-5">
+        <div class="container text-center">
+            <h1 style="color: #007BFF;">Let's predict the scammer behind the call</h1>
+            <h2 class="section-title">Predict Speaker</h2>
+            <form id="upload-form" enctype="multipart/form-data" class="text-start mx-auto">
+                <label for="audio-file">Select an Audio File:</label>
+                <input type="file" id="audio-file" name="audio_file" accept=".wav,.mp3" class="form-control mb-3" required>
+                <button type="submit" class="btn btn-primary w-100">Predict Speaker</button>
+            </form>
+            <h3 id="prediction-result" class="mt-4"></h3>
+        </div>
+        <hr>
+    </section>
+
+<!-- Features Section -->
+<section id="features" class="py-5">
+    <div class="container text-center">
+        <h2 class="section-title">Features of FraudGuard🛡️</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h4>Advanced Speaker Recognition</h4>
+                    <p>Accurately identifies individuals based on unique voice patterns to prevent identity theft.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h4>Real-Time Fraud Detection</h4>
+                    <p>Ensures instant detection and prevention of fraudulent calls and identity scams.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h4>Secure Communication</h4>
+                    <p>Protects all interactions and transactions with cutting-edge voice authentication technology.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5">
+    <div class="container text-center">
+        <h2 class="section-title">Contact Us</h2>
+        <p>Sayali Bambal and Rochan Awasthi</p>
+        <p>Email: sayalibambal218@gmail.com</p>
+        <p>       rochansawasthi@gmail.com</p>
+        <p>Phone: +1-800-123-4567</p>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 FraudGuard🛡️. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var formData = new FormData();
+            formData.append('audio_file', document.getElementById('audio-file').files[0]);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.predicted_speaker) {
+                    document.getElementById('prediction-result').textContent = 'Predicted Speaker: ' + data.predicted_speaker;
+                } else {
+                    document.getElementById('prediction-result').textContent = 'Error: ' + data.error;
+                }
+            })
+            .catch(error => {
+                document.getElementById('prediction-result').textContent = 'Error: ' + error;
+            });
+        });
+    </script>
+</body>
+</html>
