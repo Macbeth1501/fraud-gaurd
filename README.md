@@ -64,7 +64,12 @@ FraudGuard is an AI/ML-based speaker identification system designed to enhance c
 1. **Clone the repo**:
 - Clone the repository:  git clone https://github.com/your-username/solar-panel-extraction.git
 
-2. **Run the Application**:
+2. **Download the model**:
+   - As the size of the model file is too large i have uploaded the model on google drive you can download it from here
+     https://drive.google.com/file/d/1Hkprxoz7ylHbLM2Ul5kQHkM1A6B8YUPd/view?usp=sharing
+    - Save this model in the same working directory as the app.py file.
+
+3. **Run the Application**:
    - Open a terminal.
    - Run the following command:
      ```
@@ -72,7 +77,7 @@ FraudGuard is an AI/ML-based speaker identification system designed to enhance c
      ```
    - The terminal will provide a link, usually `http://127.0.0.1:5000`. Open this link in your web browser.
 
-3. **Using the Web Application**:
+4. **Using the Web Application**:
    - The webpage for our application, Fraud Guard, will automatically open.
    - Scroll down and click the "Choose File" button.
    - Select an audio file from your computer.
